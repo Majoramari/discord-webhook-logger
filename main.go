@@ -14,7 +14,7 @@ import (
 func main() {
 	err := godotenv.Load(".env")
 	if err != nil {
-		fmt.Printf("No .env file")
+		fmt.Println("warning there is no .env file!")
 	}
 
 	router := server.NewRouter()
