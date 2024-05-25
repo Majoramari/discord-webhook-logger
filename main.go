@@ -14,7 +14,7 @@ import (
 func main() {
 	err := godotenv.Load(".env")
 	if err != nil {
-		log.Panicf("error loading .env file: %v", err)
+		fmt.Printf("No .env file")
 	}
 
 	router := server.NewRouter()
