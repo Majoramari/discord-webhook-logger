@@ -6,7 +6,6 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/joho/godotenv"
 	"github.com/majoramari/visitor-logger/visitor"
 )
 
@@ -61,12 +60,6 @@ func CreatePayload(visitorInfo visitor.VisitorInfo) WebhookPayload {
 }
 
 func getCountryFromIP(ip string) string {
-	err := godotenv.Load(".env")
-	if err != nil {
-		fmt.Println("Error loading .env file:", err)
-		return "Unknown"
-	}
-
 	apiKey := os.Getenv("API_KEY")
 	if apiKey == "" {
 		fmt.Println("IP geolocation API key not found in environment variables")

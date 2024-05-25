@@ -7,16 +7,10 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/joho/godotenv"
 	"github.com/majoramari/visitor-logger/visitor"
 )
 
 func SendToWebhook(visitorInfo visitor.VisitorInfo) error {
-	err := godotenv.Load(".env")
-	if err != nil {
-		return fmt.Errorf("error loading .env file: %v", err)
-	}
-
 	webhookURL := os.Getenv("WEBHOOK_URL")
 	if webhookURL == "" {
 		return fmt.Errorf("webhook URL not found in environment variables")
